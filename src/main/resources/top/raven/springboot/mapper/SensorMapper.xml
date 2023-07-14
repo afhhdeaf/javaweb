@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.raven.springboot.mapper.SensorMapper">
+    <resultMap id="sensorMap" type="sensorDao">
+        <result column="name" property="name" />
+        <result column="data" property="dataStr" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="sensorMap">
+        select * from sensor;
+    </select>
+
+<!--    <delete id="deleteRecordByIds">-->
+<!--        delete from tb_brand where id in-->
+<!--        <foreach collection="ids" item="id" separator="," open="(" close=")">-->
+<!--            #{id}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+
+</mapper>

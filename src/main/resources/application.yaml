@@ -1,0 +1,61 @@
+---
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.3.6:3306/project?useSSL=false&serverTimezone=UTC
+    username: root
+    password: qaz123wsx
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  config:
+    activate:
+      on-profile: "dev"
+
+  redis:
+    host: 192.168.3.6
+    port: 6379
+    password: qaz123wsx
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 16
+        min-idle: 5
+
+mybatis:
+  mapper-locations: classpath:top/raven/springboot/service/*.xml
+  type-aliases-package: top.raven.springboot.dao
+
+#server:
+#  address: 192.168.3.4
+
+---
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/api?useSSL=false&serverTimezone=UTC
+    username: root
+    password: ravenMeshgrid!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  config:
+    activate:
+      on-profile: "pro"
+
+  redis:
+    host: localhost
+    port: 7859
+    password: wqerjoewqtn897#fnk
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 16
+        min-idle: 5
+
+mybatis:
+  mapper-locations: classpath:top/raven/springboot/service/*.xml
+  type-aliases-package: top.raven.springboot.dao
+
+---
+spring:
+  profiles:
+    active: "dev"
